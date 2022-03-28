@@ -1,0 +1,29 @@
+package Les45_47Serialization;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+
+class Les45ReadObject {
+    static void read() {
+        try {
+            FileInputStream fis = new FileInputStream("people.bin");
+            ObjectInputStream ois = new ObjectInputStream(fis);
+
+            Person person1 = (Person) ois.readObject();
+            Person person2 = (Person) ois.readObject();
+
+            System.out.println(person1);
+            System.out.println(person2);
+
+            ois.close();
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+    }
+}
